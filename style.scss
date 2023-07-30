@@ -1,0 +1,467 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+$black-color: #1E1E1E;
+$white-color: #F6F5F8;
+
+$top-nav-size: 66px;
+
+$card-width: 512px;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+
+    background-color: $white-color;
+
+    display: grid;
+    // grid-template-columns: 250px auto;
+    grid-template-columns: 0px auto;
+    grid-template-rows: $top-nav-size calc(100vh - $top-nav-size);
+}
+
+.LeftMenu {
+    display: none !important;
+    background-color: $black-color;
+    grid-column: 1/2;
+    grid-row: 1/3;
+
+    display: flex;
+    flex-direction: column;
+    &::before {
+        content: '';
+        width: 250px;
+        height: 250px;
+        background: white;
+        opacity: .05;
+        position: absolute;
+        top: -75px;
+        left: -75px;
+        filter: blur(64px);
+    }
+    & > * {
+        z-index: 2;
+    }
+}
+
+.TopNavigation {
+    background-color: $white-color;
+    grid-column: 2/3;
+    grid-row: 1/2;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 24px;
+
+    padding: 24px;
+
+    // border-bottom: 1px solid #89888A;
+    position: relative;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.05), 0px 2px 5px 0px rgba(0, 0, 0, 0.05), 0px 9px 9px 0px rgba(0, 0, 0, 0.04), 0px 20px 12px 0px rgba(0, 0, 0, 0.01), 0px 35px 14px 0px rgba(0, 0, 0, 0.01), 0px 55px 15px 0px rgba(0, 0, 0, 0.00);
+}
+
+.MainDisplay {
+    background-color: $white-color;
+    grid-column: 2/3;
+    // grid-row: 2/3;
+    height: fit-content;
+
+    max-height: calc(100vh - $top-nav-size);
+
+    overflow-y: scroll;
+
+    padding: 24px;
+    gap: 24px;
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(175px, 512px));
+    grid-template-rows: repeat( auto-fit, minmax(0px, auto-fit));
+    justify-content: center;
+}
+
+.Logo {
+    padding: 1rem 0rem;
+    display: flex;
+    min-height: $top-nav-size;
+    align-items: center;
+    justify-content: center;
+    color: $white-color;
+    font-size: 1rem;
+
+    border-bottom: 1px solid #89888A;
+}
+
+.SearchGroup {
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.10);
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    color: rgba(0, 0, 0, 0.60);
+
+    padding: 0px 0px 0px 12px;
+    i {
+        cursor: pointer;
+        transform: translateY(1px);
+    }
+    input {
+        width: 100%;
+        border-radius: 8px;
+        border: none;
+        background: none;
+        outline: none;
+        font-size: .95rem;
+        padding: .5rem;
+        font-weight: 400;
+
+        font-family: 'Roboto', sans-serif;
+        &::placeholder {
+            user-select: none;
+        }
+    }
+}
+
+.UserCard {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    &-Avatar {
+        height: 25px;
+        aspect-ratio: 1;
+        background: lighten($black-color,65%);
+        border-radius: 50%;
+    }
+    &-FullName {
+        line-height: 100%;
+        font-size: 1.25rem;
+        color: $black-color;
+    }
+}
+
+.LeftMenu {
+    &-ButtonGroup {
+        display: flex;
+        flex-direction: column;
+        padding: 1.25rem;
+        gap: calc(1.25rem / 2);
+        height: 100%;
+        &-Button {
+            user-select: none;
+            background: none;
+
+            font-size: 1rem;
+            font-weight: 500;
+            color: $white-color;
+
+            text-align: left;
+
+            padding: .65rem;
+            border-radius: 6px;
+            border: none;
+
+            display: flex;
+            gap: 6px;
+
+            cursor: pointer;
+        }
+        .Active {
+            background-color: opacify(rgba($white-color, .1), 0) !important;
+        }
+    }
+    &-LogOut {
+        user-select: none;
+        cursor: pointer;
+
+        color: $white-color;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: lefts;
+
+        padding: 16px 24px 16px calc(20px + .65rem);
+        background: rgba(0, 0, 0, 0.25);
+        h1 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            i {
+                font-size: 1.25rem;
+            }
+        }
+    }
+}
+
+.EarningSummary {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(175px, 250px));
+    gap: 12px;
+    height: fit-content;
+    &-Card {
+        box-shadow: 0px -1px 4px 0px rgba(0, 0, 0, 0.05), 0px 0px 0px 0px rgba(0, 0, 0, 0.05), 0px 2px 5px 0px rgba(0, 0, 0, 0.05), 0px 9px 9px 0px rgba(0, 0, 0, 0.04), 0px 20px 12px 0px rgba(0, 0, 0, 0.02), 0px 35px 14px 0px rgba(0, 0, 0, 0.01), 0px 55px 15px 0px rgba(0, 0, 0, 0.00);
+        background-color: white;
+        border-radius: 8px;
+        padding: 24px 18px;
+        position: relative;
+        .RangeSelect {
+            color: rgba(128, 128, 128, 1);
+            letter-spacing: -0.25px;
+            font-size: .85rem;
+            font-weight: 400;
+            border: none;
+            outline: none;
+        }
+        .FlexBox {
+            max-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        &-Title {
+            display: none;
+            color: rgba(128, 128, 128, 1);
+            letter-spacing: -0.25px;
+            font-size: .85rem;
+            font-weight: 400;
+        }
+        &-Value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -1px;
+            color: $black-color;
+            white-space: nowrap;
+            &::after {
+                content: ' PLN ';
+            }
+        }
+        &-PercentGood {
+            user-select: none;
+            padding: 4px 6px;
+            border-radius: 12px;
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: #2EAB33;
+            background-color: rgba(46, 171, 50, 0.25);
+            white-space: nowrap;
+            &::before {
+                content: '+ ';
+            }
+        }
+        &-PercentBad {
+            user-select: none;
+            padding: 4px 6px;
+            border-radius: 12px;
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: rgba(171, 46, 46, 1);
+            background-color: rgba(171, 46, 46, .25);
+            white-space: nowrap;
+            &::before {
+                content: '- ';
+            }
+        }
+    }
+
+}
+
+.EarningAddFormule {
+    user-select: none;
+    height: fit-content;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr .80fr;
+    column-gap: 8px;
+    row-gap: 8px;
+
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px -1px 4px 0px rgba(0, 0, 0, 0.05), 0px 0px 0px 0px rgba(0, 0, 0, 0.06), 0px 2px 5px 0px rgba(0, 0, 0, 0.05), 0px 9px 9px 0px rgba(0, 0, 0, 0.04), 0px 20px 12px 0px rgba(0, 0, 0, 0.02), 0px 35px 14px 0px rgba(0, 0, 0, 0.01), 0px 55px 15px 0px rgba(0, 0, 0, 0.00);
+
+    max-width: $card-width;
+    padding: .51rem;
+    fieldset {
+        padding: 0;
+        border-radius: 8px;
+        border-color: white;
+
+        display: flex;
+        align-items: center;
+        .Sufix {
+            transform: translateY(-3px);
+            color: rgba(128, 128, 128, 1);
+            font-weight: 500;
+            font-size: .85rem;
+            padding-right: .75rem;
+        }
+        legend {
+            transform: translateY(0px);
+            margin-left: calc(1rem - 4px);
+            // color: rgba(128, 128, 128, 1);
+            color: $black-color;
+            font-weight: 500;
+            letter-spacing: -0.1px;
+            font-size: 1rem;
+        }
+        input {
+            transform: translateY(-3px);
+            outline: none;
+            width: 100%;
+            padding: .5rem 1rem;
+            border: none;
+            background: none;
+            
+            color: rgba(128, 128, 128, 1);
+            font-weight: 500;
+            font-size: .85rem;
+        }
+    }
+    &-Name {
+        grid-column: 1 / 3;
+    }
+    &-Date {
+        grid-column: 1 / 2;
+    }
+    &-Value {
+        grid-column: 2 / 3;
+    }
+    &-ButtonAdd {
+        position: relative;
+        overflow: hidden;
+        grid-column: 1 / 3;
+        background-color: rgb(29, 170, 29);
+        color: $white-color;
+        border: none;
+        
+        font-size: 1.2rem;
+        font-weight: 600;
+
+        border-radius: 8px;
+        cursor: pointer;
+
+        transition: 100ms background-color;
+        &::before, &::after {
+            content: '';
+            width: 100px;
+            height: 100px;
+            background: white;
+            opacity: .35;
+            position: absolute;
+
+            filter: blur(64px);
+        }
+        &::before {
+            top: -25px;
+            left: -25px;
+        }
+        &::after {
+            top: -25px;
+            right: -25px;
+            z-index: 2;
+        }
+        &:hover {
+            background-color: darken(rgb(29, 170, 29), 5%);
+        }
+    }
+}
+
+.LatesEarningList {
+    background-color: white;
+    box-shadow: 0px -1px 4px 0px rgba(0, 0, 0, 0.05), 0px 0px 0px 0px rgba(0, 0, 0, 0.06), 0px 2px 5px 0px rgba(0, 0, 0, 0.05), 0px 9px 9px 0px rgba(0, 0, 0, 0.04), 0px 20px 12px 0px rgba(0, 0, 0, 0.02), 0px 35px 14px 0px rgba(0, 0, 0, 0.01), 0px 55px 15px 0px rgba(0, 0, 0, 0.00);
+    border-radius: 8px;
+    padding: .51rem;
+    height: fit-content;
+    max-height: calc(100vh - $top-nav-size - 48px);
+    overflow-y: auto;
+    table, tr, th, td {
+        border-collapse: collapse;
+        border: 1px solid rgba(45, 92, 221, 0.3);
+    }
+    table {
+        width: 100%;
+        tr {
+            th {
+                font-weight: 500 !important;
+            }
+            th, td {
+                text-align: left;
+                padding: .15rem .50rem;
+                color: $black-color;
+                letter-spacing: -0.25px;
+                font-size: .90rem;
+                font-weight: 400;
+            }
+            td:last-child {
+                padding: 0;
+            }
+        }
+        tr:not(tr:first-child) {
+            td {
+                color: rgb(68, 94, 167);
+            }
+        }
+        tr:nth-child(even) {
+            background: rgba(100, 119, 226, 0.15);
+        }
+        tr {
+            td,th {
+                white-space: nowrap;
+            }
+            td:nth-child(1), th:nth-child(1) {
+                width: 100%;
+            }
+            td:nth-child(2), th:nth-child(2) {
+                width: fit-content;
+            }
+            td:nth-child(3), th:nth-child(3) {
+                width: fit-content;
+            }
+        }
+    }
+    .ActionTable {
+        // background-color: red;
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+    &-RemoveRow {
+        background: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.75rem;
+        height: 1.75rem;
+        border: none;
+        color: rgba(68, 94, 167, 0.75);
+        font-size: 1.15rem;
+        cursor: pointer;
+    }
+}
+
+//* Jesli jest mniejsze niz 810px to karty będą na całą długość
+@media only screen and (max-width: 810px) {
+    .EarningSummary {
+        grid-template-columns: repeat( auto-fit, minmax(175px, 100%));
+    }
+
+    .UserCard {
+        &-FullName {
+            display: none;
+        }
+    }
+
+    .SearchGroup {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+}

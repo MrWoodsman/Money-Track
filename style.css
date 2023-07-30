@@ -1,0 +1,433 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  background-color: #F6F5F8;
+  display: grid;
+  grid-template-columns: 0px auto;
+  grid-template-rows: 66px calc(100vh - 66px);
+}
+
+.LeftMenu {
+  display: none !important;
+  background-color: #1E1E1E;
+  grid-column: 1/2;
+  grid-row: 1/3;
+  display: flex;
+  flex-direction: column;
+}
+.LeftMenu::before {
+  content: "";
+  width: 250px;
+  height: 250px;
+  background: white;
+  opacity: 0.05;
+  position: absolute;
+  top: -75px;
+  left: -75px;
+  filter: blur(64px);
+}
+.LeftMenu > * {
+  z-index: 2;
+}
+
+.TopNavigation {
+  background-color: #F6F5F8;
+  grid-column: 2/3;
+  grid-row: 1/2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px;
+  position: relative;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.05), 0px 2px 5px 0px rgba(0, 0, 0, 0.05), 0px 9px 9px 0px rgba(0, 0, 0, 0.04), 0px 20px 12px 0px rgba(0, 0, 0, 0.01), 0px 35px 14px 0px rgba(0, 0, 0, 0.01), 0px 55px 15px 0px rgba(0, 0, 0, 0);
+}
+
+.MainDisplay {
+  background-color: #F6F5F8;
+  grid-column: 2/3;
+  height: -moz-fit-content;
+  height: fit-content;
+  max-height: calc(100vh - 66px);
+  overflow-y: scroll;
+  padding: 24px;
+  gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 512px));
+  grid-template-rows: repeat(auto-fit, minmax(0px, auto-fit));
+  justify-content: center;
+}
+
+.Logo {
+  padding: 1rem 0rem;
+  display: flex;
+  min-height: 66px;
+  align-items: center;
+  justify-content: center;
+  color: #F6F5F8;
+  font-size: 1rem;
+  border-bottom: 1px solid #89888A;
+}
+
+.SearchGroup {
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  color: rgba(0, 0, 0, 0.6);
+  padding: 0px 0px 0px 12px;
+}
+.SearchGroup i {
+  cursor: pointer;
+  transform: translateY(1px);
+}
+.SearchGroup input {
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 0.95rem;
+  padding: 0.5rem;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+}
+.SearchGroup input::-moz-placeholder {
+  -moz-user-select: none;
+       user-select: none;
+}
+.SearchGroup input::placeholder {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.UserCard {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.UserCard-Avatar {
+  height: 25px;
+  aspect-ratio: 1;
+  background: #c4c4c4;
+  border-radius: 50%;
+}
+.UserCard-FullName {
+  line-height: 100%;
+  font-size: 1.25rem;
+  color: #1E1E1E;
+}
+
+.LeftMenu-ButtonGroup {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  gap: 0.625rem;
+  height: 100%;
+}
+.LeftMenu-ButtonGroup-Button {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #F6F5F8;
+  text-align: left;
+  padding: 0.65rem;
+  border-radius: 6px;
+  border: none;
+  display: flex;
+  gap: 6px;
+  cursor: pointer;
+}
+.LeftMenu-ButtonGroup .Active {
+  background-color: rgba(246, 245, 248, 0.1) !important;
+}
+.LeftMenu-LogOut {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  color: #F6F5F8;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: lefts;
+  padding: 16px 24px 16px calc(20px + 0.65rem);
+  background: rgba(0, 0, 0, 0.25);
+}
+.LeftMenu-LogOut h1 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.LeftMenu-LogOut h1 i {
+  font-size: 1.25rem;
+}
+
+.EarningSummary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 250px));
+  gap: 12px;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.EarningSummary-Card {
+  box-shadow: 0px -1px 4px 0px rgba(0, 0, 0, 0.05), 0px 0px 0px 0px rgba(0, 0, 0, 0.05), 0px 2px 5px 0px rgba(0, 0, 0, 0.05), 0px 9px 9px 0px rgba(0, 0, 0, 0.04), 0px 20px 12px 0px rgba(0, 0, 0, 0.02), 0px 35px 14px 0px rgba(0, 0, 0, 0.01), 0px 55px 15px 0px rgba(0, 0, 0, 0);
+  background-color: white;
+  border-radius: 8px;
+  padding: 24px 18px;
+  position: relative;
+}
+.EarningSummary-Card .RangeSelect {
+  color: rgb(128, 128, 128);
+  letter-spacing: -0.25px;
+  font-size: 0.85rem;
+  font-weight: 400;
+  border: none;
+  outline: none;
+}
+.EarningSummary-Card .FlexBox {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.EarningSummary-Card-Title {
+  display: none;
+  color: rgb(128, 128, 128);
+  letter-spacing: -0.25px;
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+.EarningSummary-Card-Value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -1px;
+  color: #1E1E1E;
+  white-space: nowrap;
+}
+.EarningSummary-Card-Value::after {
+  content: " PLN ";
+}
+.EarningSummary-Card-PercentGood {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  padding: 4px 6px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: #2EAB33;
+  background-color: rgba(46, 171, 50, 0.25);
+  white-space: nowrap;
+}
+.EarningSummary-Card-PercentGood::before {
+  content: "+ ";
+}
+.EarningSummary-Card-PercentBad {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  padding: 4px 6px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: rgb(171, 46, 46);
+  background-color: rgba(171, 46, 46, 0.25);
+  white-space: nowrap;
+}
+.EarningSummary-Card-PercentBad::before {
+  content: "- ";
+}
+
+.EarningAddFormule {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 0.8fr;
+  -moz-column-gap: 8px;
+       column-gap: 8px;
+  row-gap: 8px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px -1px 4px 0px rgba(0, 0, 0, 0.05), 0px 0px 0px 0px rgba(0, 0, 0, 0.06), 0px 2px 5px 0px rgba(0, 0, 0, 0.05), 0px 9px 9px 0px rgba(0, 0, 0, 0.04), 0px 20px 12px 0px rgba(0, 0, 0, 0.02), 0px 35px 14px 0px rgba(0, 0, 0, 0.01), 0px 55px 15px 0px rgba(0, 0, 0, 0);
+  max-width: 512px;
+  padding: 0.51rem;
+}
+.EarningAddFormule fieldset {
+  padding: 0;
+  border-radius: 8px;
+  border-color: white;
+  display: flex;
+  align-items: center;
+}
+.EarningAddFormule fieldset .Sufix {
+  transform: translateY(-3px);
+  color: rgb(128, 128, 128);
+  font-weight: 500;
+  font-size: 0.85rem;
+  padding-right: 0.75rem;
+}
+.EarningAddFormule fieldset legend {
+  transform: translateY(0px);
+  margin-left: calc(1rem - 4px);
+  color: #1E1E1E;
+  font-weight: 500;
+  letter-spacing: -0.1px;
+  font-size: 1rem;
+}
+.EarningAddFormule fieldset input {
+  transform: translateY(-3px);
+  outline: none;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: none;
+  color: rgb(128, 128, 128);
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+.EarningAddFormule-Name {
+  grid-column: 1/3;
+}
+.EarningAddFormule-Date {
+  grid-column: 1/2;
+}
+.EarningAddFormule-Value {
+  grid-column: 2/3;
+}
+.EarningAddFormule-ButtonAdd {
+  position: relative;
+  overflow: hidden;
+  grid-column: 1/3;
+  background-color: rgb(29, 170, 29);
+  color: #F6F5F8;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 100ms background-color;
+}
+.EarningAddFormule-ButtonAdd::before, .EarningAddFormule-ButtonAdd::after {
+  content: "";
+  width: 100px;
+  height: 100px;
+  background: white;
+  opacity: 0.35;
+  position: absolute;
+  filter: blur(64px);
+}
+.EarningAddFormule-ButtonAdd::before {
+  top: -25px;
+  left: -25px;
+}
+.EarningAddFormule-ButtonAdd::after {
+  top: -25px;
+  right: -25px;
+  z-index: 2;
+}
+.EarningAddFormule-ButtonAdd:hover {
+  background-color: #199419;
+}
+
+.LatesEarningList {
+  background-color: white;
+  box-shadow: 0px -1px 4px 0px rgba(0, 0, 0, 0.05), 0px 0px 0px 0px rgba(0, 0, 0, 0.06), 0px 2px 5px 0px rgba(0, 0, 0, 0.05), 0px 9px 9px 0px rgba(0, 0, 0, 0.04), 0px 20px 12px 0px rgba(0, 0, 0, 0.02), 0px 35px 14px 0px rgba(0, 0, 0, 0.01), 0px 55px 15px 0px rgba(0, 0, 0, 0);
+  border-radius: 8px;
+  padding: 0.51rem;
+  height: -moz-fit-content;
+  height: fit-content;
+  max-height: calc(100vh - 66px - 48px);
+  overflow-y: auto;
+}
+.LatesEarningList table, .LatesEarningList tr, .LatesEarningList th, .LatesEarningList td {
+  border-collapse: collapse;
+  border: 1px solid rgba(45, 92, 221, 0.3);
+}
+.LatesEarningList table {
+  width: 100%;
+}
+.LatesEarningList table tr th {
+  font-weight: 500 !important;
+}
+.LatesEarningList table tr th, .LatesEarningList table tr td {
+  text-align: left;
+  padding: 0.15rem 0.5rem;
+  color: #1E1E1E;
+  letter-spacing: -0.25px;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+.LatesEarningList table tr td:last-child {
+  padding: 0;
+}
+.LatesEarningList table tr:not(tr:first-child) td {
+  color: rgb(68, 94, 167);
+}
+.LatesEarningList table tr:nth-child(even) {
+  background: rgba(100, 119, 226, 0.15);
+}
+.LatesEarningList table tr td, .LatesEarningList table tr th {
+  white-space: nowrap;
+}
+.LatesEarningList table tr td:nth-child(1), .LatesEarningList table tr th:nth-child(1) {
+  width: 100%;
+}
+.LatesEarningList table tr td:nth-child(2), .LatesEarningList table tr th:nth-child(2) {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.LatesEarningList table tr td:nth-child(3), .LatesEarningList table tr th:nth-child(3) {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.LatesEarningList .ActionTable {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+.LatesEarningList-RemoveRow {
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: none;
+  color: rgba(68, 94, 167, 0.75);
+  font-size: 1.15rem;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 810px) {
+  .EarningSummary {
+    grid-template-columns: repeat(auto-fit, minmax(175px, 100%));
+  }
+  .UserCard-FullName {
+    display: none;
+  }
+  .SearchGroup {
+    width: 100%;
+    max-width: 250px;
+  }
+}/*# sourceMappingURL=style.css.map */
