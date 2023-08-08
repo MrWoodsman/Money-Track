@@ -42,7 +42,7 @@
 
             <div class="EarningSummary-Card MonthStatistics">
                 <h3 class="EarningSummary-Card-Title NoDisplay">Miesiąc</h3>
-                <input type="month" class="RangeSelect" id="MonthSelect" style="--DefaultWidth: 7rem;">
+                <input type="month" class="RangeSelect" id="MonthSelect" style="--DefaultWidth: 8.5rem;">
                 <div class="FlexBox">
                     <h4 class="EarningSummary-Card-Value">0</h4>
                     <div class="EarningSummary-Card-PercentGood">0%</div>
@@ -54,7 +54,7 @@
                 <input type="week" class="RangeSelect" id="WeekSelect">
                 <div class="FlexBox">
                     <h4 class="EarningSummary-Card-Value">0</h4>
-                    <div class="EarningSummary-Card-PercentBad">0%</div>
+                    <div class="EarningSummary-Card-PercentNeutral">0%</div>
                 </div>
             </div>
         </section>
@@ -80,29 +80,13 @@
 
         <section class="LatesEarningList">
             <table>
-                <tr>
+                <tr style="user-select: none;">
                     <th>Nazwa</th>
-                    <th>Data</th>
+                    <th id="SortByDateAction">Data <i class="bi bi-caret-down-fill"></i></th>
                     <th>Kwota</th>
                     <th class="ActionTable"></th>
                 </tr>
                 <!-- <tr>
-                    <td>TEST</td>
-                    <td>29.07.2023</td>
-                    <td>50,00 PLN</td>
-                    <td><button class="LatesEarningList-RemoveRow"><i class="bi bi-trash-fill"></i></button></td>
-                </tr>
-                <tr>
-                    <td>TEST</td>
-                    <td>29.07.2023</td>
-                    <td>50,00 PLN</td>
-                    <td><button class="LatesEarningList-RemoveRow"><i class="bi bi-trash-fill"></i></button></td>
-                </tr>                <tr>
-                    <td>TEST</td>
-                    <td>29.07.2023</td>
-                    <td>50,00 PLN</td>
-                    <td><button class="LatesEarningList-RemoveRow"><i class="bi bi-trash-fill"></i></button></td>
-                </tr>                <tr>
                     <td>TEST</td>
                     <td>29.07.2023</td>
                     <td>50,00 PLN</td>

@@ -275,6 +275,9 @@ body {
                 content: '- ';
             }
         }
+        &-PercentNeutral {
+            display: none;
+        }
     }
 
 }
@@ -398,6 +401,15 @@ body {
     }
     table {
         width: 100%;
+        tr:first-child {
+            th:nth-child(2) {
+                cursor: pointer;
+                transition: 100ms background;
+                &:hover {
+                    background: rgb(221, 221, 221);
+                }
+            }
+        }
         tr {
             th {
                 font-weight: 500 !important;

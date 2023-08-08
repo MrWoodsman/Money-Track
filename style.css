@@ -258,6 +258,9 @@ body {
 .EarningSummary-Card-PercentBad::before {
   content: "- ";
 }
+.EarningSummary-Card-PercentNeutral {
+  display: none;
+}
 
 .NoDisplay {
   display: none !important;
@@ -374,6 +377,13 @@ body {
 }
 .LatesEarningList table {
   width: 100%;
+}
+.LatesEarningList table tr:first-child th:nth-child(2) {
+  cursor: pointer;
+  transition: 100ms background;
+}
+.LatesEarningList table tr:first-child th:nth-child(2):hover {
+  background: rgb(221, 221, 221);
 }
 .LatesEarningList table tr th {
   font-weight: 500 !important;
