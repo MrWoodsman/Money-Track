@@ -193,10 +193,14 @@ body {
   position: relative;
 }
 .EarningSummary-Card .RangeSelect {
+  --DefaultWidth: 8rem;
+  width: var(--DefaultWidth);
   color: rgb(128, 128, 128);
   letter-spacing: -0.25px;
   font-size: 0.85rem;
   font-weight: 400;
+  background: none;
+  background-color: none;
   border: none;
   outline: none;
 }
@@ -207,7 +211,6 @@ body {
   justify-content: space-between;
 }
 .EarningSummary-Card-Title {
-  display: none;
   color: rgb(128, 128, 128);
   letter-spacing: -0.25px;
   font-size: 0.85rem;
@@ -254,6 +257,10 @@ body {
 }
 .EarningSummary-Card-PercentBad::before {
   content: "- ";
+}
+
+.NoDisplay {
+  display: none !important;
 }
 
 .EarningAddFormule {

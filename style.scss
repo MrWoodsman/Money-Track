@@ -212,10 +212,16 @@ body {
         padding: 24px 18px;
         position: relative;
         .RangeSelect {
+            --DefaultWidth: 8rem;
+            width: var(--DefaultWidth);
+            
             color: rgba(128, 128, 128, 1);
             letter-spacing: -0.25px;
             font-size: .85rem;
             font-weight: 400;
+
+            background: none;
+            background-color: none;
             border: none;
             outline: none;
         }
@@ -226,7 +232,6 @@ body {
             justify-content: space-between;
         }
         &-Title {
-            display: none;
             color: rgba(128, 128, 128, 1);
             letter-spacing: -0.25px;
             font-size: .85rem;
@@ -272,6 +277,10 @@ body {
         }
     }
 
+}
+
+.NoDisplay {
+    display: none !important;
 }
 
 .EarningAddFormule {
